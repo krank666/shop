@@ -17,17 +17,17 @@
 
 <script setup>
 import {reactive, ref} from 'vue'
-import { login } from '@/api/login'
-import { h } from 'vue'
+import { useStore } from "vuex"
+const store = useStore()
+
 const form = ref(
     {
       username: 'admin',
       password:'123456'
     }
 )
-const submit = async () => {
- const res = await login(form.value)
-  console.log(res);
+const submit = () => {
+  store.dispatch('app/login', form.value)
 }
 
 const ruleFormRef = ref(null)

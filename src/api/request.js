@@ -15,7 +15,7 @@ service.interceptors.response.use( (response) => {
         return Promise.reject(new Error(meta.msg))
     }
 }, error => {
-    error.response && ElMessage.error(rror.response.data)
+    error.response && ElMessage.error(error.response.data)
     return Promise.reject(new Error(error.response.data))
 })
 export default service
