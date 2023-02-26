@@ -5,7 +5,6 @@ function resolve(dir) {
 }
 module.exports = defineConfig({
   devServer: {
-
     proxy: {
       '/api': {
         target: 'https://lianghj.top:8888/api/private/v1/',
@@ -13,6 +12,17 @@ module.exports = defineConfig({
         pathRewrite: {
           '^/api': ''
         }
+      }
+    }
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData:   // 8版本用prependData:
+            `
+          @import "@/styles/variables.scss";
+          @import "@/styles/mixin.scss"; 
+          `
       }
     }
   },
