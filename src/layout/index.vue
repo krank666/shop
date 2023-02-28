@@ -1,17 +1,17 @@
 <template>
   <el-container class="app-wrapper">
-    <el-aside class="sidebar-container">Aside</el-aside>
-    <el-container>
+    <el-aside class="sidebar-container" width="200px">
+      <Menu />
+    </el-aside>
+    <el-container class="container">
       <el-header>Header</el-header>
       <el-main>Main</el-main>
     </el-container>
   </el-container>
 </template>
 
-<script>
-export default {
-  name: "index"
-}
+<script setup>
+import Menu from './menu/index'
 </script>
 
 <style lang="scss" scoped>

@@ -2,8 +2,9 @@ import router from './index'
 import store from '@/store'
 
 
-const whiteList = ['/login',]
+const whiteList = ['/login','/']
 router.beforeEach((to, from, next) => {
+    console.log(store.getters.token)
     // 判断是否登录是否有token
     if(store.getters.token) {
         //如果已经登录 并且是从登录页进来的
