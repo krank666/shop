@@ -7,6 +7,7 @@
       default-active="2"
       text-color="#fff"
       router
+      unique-opened
   >
     <el-sub-menu v-for="item in menuList" :key="item.id" :index="item.id">
       <template #title>
@@ -24,12 +25,7 @@
 </template>
 
 <script setup>
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
+import { Location } from '@element-plus/icons-vue'
 import { getMenu } from '@/api/menu'
 import { ref } from 'vue'
 
