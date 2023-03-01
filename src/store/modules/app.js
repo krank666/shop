@@ -11,6 +11,7 @@ export default {
         setToken(state, token) {
             state.token = token
             localStorage.setItem('token', token)
+            console.log(state)
         }
     },
     // step1 异步操作，调取接口，存储token
