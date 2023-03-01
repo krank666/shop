@@ -1,5 +1,6 @@
 import { login as loginApi } from '@/api/login'
 import router from '@/router'
+import {setTokenTime} from '@/utils/auth'
 export default {
     namespaced: true,
     // step0 声明token
@@ -20,6 +21,8 @@ export default {
             return new Promise( (resolve, reject) => {
                 loginApi(userInfo).then(res => {
                     commit('setToken', res.token)
+                    // 记录当前登录时间
+                    setTokenTime()
                     // 成功后跳转
                     router.replace('/')
                     resolve()
@@ -27,6 +30,12 @@ export default {
                     reject(err)
                 })
             })
+        },
+        logout({ commit }) {
+            // 清空token
+            commit('setToken', '')
+            localStorage.clear()
+            router.replace('/login')
         }
     }
 }

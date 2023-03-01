@@ -40,7 +40,6 @@ const initMenuList = async () => {
   const res = await getMenu()
   menuList.value = res
 }
-
 initMenuList()
 
 const savePath = (path) => {
