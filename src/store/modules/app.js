@@ -3,14 +3,14 @@ import router from '@/router'
 export default {
     namespaced: true,
     // step0 声明token
-    state: () => {
+    state: () => ({
         token: localStorage.getItem('token') || ''
-    },
+    }),
     // step1 存储token的方法
     mutations: {
         setToken(state, token) {
-            state.token = token
             localStorage.setItem('token', token)
+            state.token = token
             console.log(state)
         }
     },
