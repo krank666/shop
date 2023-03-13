@@ -4,7 +4,9 @@
       <Menu />
     </el-aside>
     <el-container class="container">
-      <el-header>Header</el-header>
+      <el-header>
+        <Headers />
+      </el-header>
       <el-main>
         <router-view />
       </el-main>
@@ -14,6 +16,7 @@
 
 <script setup>
 import Menu from './menu/index'
+import Headers from './headers/index'
 </script>
 
 <style lang="scss" scoped>
