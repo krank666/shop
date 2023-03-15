@@ -1,15 +1,14 @@
 <template>
-
+<div class="navbar">123</div>
 </template>
 
-<script>
-export default {
-  name: "index"
-}
+<script setup>
+
 </script>
 
 <style scoped lang="scss">
 .navbar {
+  background: pink;
   width: 100%;
   height: 60px;
   overflow: hidden;

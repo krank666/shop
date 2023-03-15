@@ -1,6 +1,6 @@
 <template>
   <el-container class="app-wrapper">
-    <el-aside class="sidebar-container" width="200px">
+    <el-aside class="sidebar-container" :width="asideWidth">
       <Menu />
     </el-aside>
     <el-container class="container">
@@ -15,8 +15,13 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import Menu from './menu/index'
 import Headers from './headers/index'
+import variables from '@/styles/js.module.scss'
+const asideWidth = ref(variables.sideBarWidth)
+
+
 </script>
 
 <style lang="scss" scoped>
