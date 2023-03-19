@@ -5,7 +5,8 @@ export default {
     namespaced: true,
     // step0 声明token
     state: () => ({
-        token: localStorage.getItem('token') || ''
+        token: localStorage.getItem('token') || '',
+        isCollapse: false
     }),
     // step1 存储token的方法
     mutations: {
@@ -13,6 +14,9 @@ export default {
             localStorage.setItem('token', token)
             state.token = token
             console.log(state)
+        },
+        setCollapse(state) {
+            state.isCollapse = !state.isCollapse
         }
     },
     // step1 异步操作，调取接口，存储token
@@ -36,6 +40,7 @@ export default {
             commit('setToken', '')
             localStorage.clear()
             router.replace('/login')
-        }
+        },
+
     }
 }

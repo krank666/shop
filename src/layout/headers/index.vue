@@ -1,9 +1,11 @@
 <template>
-<div class="navbar">123</div>
+<div class="navbar">
+  <Hamburger />
+</div>
 </template>
 
 <script setup>
-
+import Hamburger from '@/layout/headers/component/hamburger.vue'
 </script>
 
 <style scoped lang="scss">
@@ -32,6 +34,9 @@
       box-sizing: border-box;
       cursor: pointer;
     }
+  }
+  .arrow {
+    color: pink;
   }
 }
 </style>

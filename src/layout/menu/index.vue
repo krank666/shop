@@ -8,6 +8,7 @@
       router
       unique-opened
       :default-active="Active"
+      :collapse="isCollapse"
   >
     <el-sub-menu v-for="item in menuList" :key="item.id" :index="item.id">
       <template #title>
