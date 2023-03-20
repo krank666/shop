@@ -8,11 +8,14 @@
 
 <script setup>
 import { DArrowLeft } from '@element-plus/icons-vue'
+import {ref} from 'vue'
+import { useStore } from 'vuex'
 
-
+const store = useStore()
+const isCollapseArrow = ref(false)
 const handleClick = () => {
-  console.log('hello');
-
+  isCollapseArrow.value = !isCollapseArrow.value;
+  store.dispatch('app/setCollapse', isCollapseArrow.value)
 }
 
 

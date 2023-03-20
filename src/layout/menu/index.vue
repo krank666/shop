@@ -6,18 +6,16 @@
       class="el-menu-vertical-demo"
       text-color="#fff"
       router
-      unique-opened
-      :default-active="Active"
-      :collapse="isCollapse"
+      :collapse="collapse"
   >
-    <el-sub-menu v-for="item in menuList" :key="item.id" :index="item.id">
+    <el-sub-menu v-for="item in menuList" :key="item.id">
       <template #title>
         <el-icon><location /></el-icon>
         <span>{{ item.authName }}</span>
       </template>
       <el-menu-item-group>
         <el-menu-item
-            :index="`/` + value.path"
+            :index=" `/` + value.path"
             v-for="value in item.children"
             :key="value.id"
             @click="savePath(value.path)"
@@ -34,9 +32,15 @@
 import { Location } from '@element-plus/icons-vue'
 import { getMenu } from '@/api/menu'
 import { ref } from 'vue'
+import store from '@/store'
+
+const collapse = ref(false)
+// collapse.value = store.getters.isCollapse
+console.log(collapse.value);
 
 const Active = ref(sessionStorage.getItem('path') || '/users')
 const menuList = ref([])
+
 const initMenuList = async () => {
   const res = await getMenu()
   menuList.value = res
