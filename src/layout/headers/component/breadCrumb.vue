@@ -1,18 +1,28 @@
 <template>
   <el-breadcrumb :separator-icon="ArrowRight">
-    <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-    <el-breadcrumb-item>promotion management</el-breadcrumb-item>
-    <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-    <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+    <el-breadcrumb-item
+      v-for="(item, index) in breadCrumbList"
+      :key="index"
+      :to="{path: item.path}"
+    >{{ item.name }}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router'
+import { watch, ref } from 'vue'
 import { ArrowRight } from '@element-plus/icons-vue'
 
 const route = useRoute()
-console.log(route.matched);
+const breadCrumbList = ref([])
+
+watch(route, (nv, ov) => {
+  breadCrumbList.value = nv.matched
+ },
+    {deep: true, immediate: true}
+)
+
+
 </script>
 
 <style scoped>
