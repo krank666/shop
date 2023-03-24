@@ -2,12 +2,14 @@
 <div class="navbar">
   <Hamburger />
   <BreadCrumb />
+  <Avatar class="navbar-right"  />
 </div>
 </template>
 
 <script setup>
 import Hamburger from '@/layout/headers/component/hamburger.vue'
 import BreadCrumb from '@/layout/headers/component/breadCrumb.vue'
+import Avatar from '@/layout/headers/component/avatar.vue'
 </script>
 
 <style scoped lang="scss">
@@ -28,7 +30,7 @@ import BreadCrumb from '@/layout/headers/component/breadCrumb.vue'
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    ::v-deep .navbar-item {
+    :deep .navbar-item {
       display: inline-block;
       margin-left: 18px;
       font-size: 22px;

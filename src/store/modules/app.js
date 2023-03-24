@@ -6,13 +6,18 @@ export default {
     // step0 声明token
     state: () => ({
         token: localStorage.getItem('token') || '',
-        isCollapse: ''
+        isCollapse: '',
+        userInfo: localStorage.getItem('userInfo') || {}
     }),
     // step1 存储token的方法
     mutations: {
         setToken(state, token) {
             localStorage.setItem('token', token)
             state.token = token
+        },
+        setUserInfo(state, info) {
+            localStorage.setItem('userInfo', JSON.stringify(info))
+            state.userInfo = info
         },
         setBool(state) {
             state.isCollapse = state
@@ -24,6 +29,7 @@ export default {
             return new Promise( (resolve, reject) => {
                 loginApi(userInfo).then(res => {
                     commit('setToken', res.token)
+                    commit('setUserInfo', res)
                     // 记录当前登录时间
                     setTokenTime()
                     // 成功后跳转
@@ -41,7 +47,6 @@ export default {
             router.replace('/login')
         },
         setCollapse({commit}, params) {
-            console.log(params);
             commit('setBool', params)
         }
     }
