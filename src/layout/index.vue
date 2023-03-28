@@ -6,7 +6,6 @@
     <el-container class="container">
       <el-header>
         <Headers />
-
       </el-header>
       <el-main>
         <router-view />

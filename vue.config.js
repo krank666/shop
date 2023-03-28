@@ -8,7 +8,8 @@ module.exports = defineConfig({
     https: false,
     proxy: {
       '/api': {
-        target: 'https://mock.presstime.cn/mock/640ee6b8a2172a0b7dcd199d/example/',
+        target: 'http://43.143.0.76:8889/api/private/v1/',
+        // target: 'https://mock.presstime.cn/mock/640ee6b8a2172a0b7dcd199d/example/',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
