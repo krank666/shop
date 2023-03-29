@@ -1,6 +1,9 @@
 <template>
 <div class="box">
   <el-form class="form" :model="form" ref="ruleFormRef" label-width="120px">
+    <el-form-item>
+      <h3>{{ $t('msg.title')}}</h3>
+    </el-form-item>
     <el-form-item label="账号" prop="username">
       <el-input v-model="form.username" />
     </el-form-item>
