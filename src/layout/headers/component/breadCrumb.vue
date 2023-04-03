@@ -4,7 +4,7 @@
       v-for="(item, index) in breadCrumbList"
       :key="index"
       :to="{path: item.path}"
-    >{{ item.name }}</el-breadcrumb-item>
+    >{{ $t(`menus.${item.name}`) }}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 

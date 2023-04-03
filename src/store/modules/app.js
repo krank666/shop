@@ -1,13 +1,15 @@
 import { login as loginApi } from '@/api/login'
 import router from '@/router'
 import {setTokenTime} from '@/utils/auth'
+import {ref} from "vue";
 export default {
     namespaced: true,
     // step0 声明token
     state: () => ({
         token: localStorage.getItem('token') || '',
         isCollapse: '',
-        userInfo: localStorage.getItem('userInfo') || {}
+        userInfo: localStorage.getItem('userInfo') || {},
+        osType: localStorage.getItem('osType') || ''
     }),
     // step1 存储token的方法
     mutations: {
@@ -21,6 +23,10 @@ export default {
         },
         setBool(state) {
             state.isCollapse = state
+        },
+        setOStype(state, type) {
+            localStorage.setItem('osType', type)
+            state.osType = type
         }
     },
     // step1 异步操作，调取接口，存储token
@@ -32,6 +38,12 @@ export default {
                     commit('setUserInfo', res)
                     // 记录当前登录时间
                     setTokenTime()
+                    // 获取当前登录者的操作系统
+                    const isMac = ref(/macintosh|mac os x/i.test(navigator.userAgent))
+                    const isWin = ref(/windows/i.test(navigator.userAgent))
+                    console.log(isMac);
+                    console.log(isWin);
+                    // isMac.value === true ? commit('setOStype', 'MAC') : commit('setOStype', 'WIN')
                     // 成功后跳转
                     router.replace('/')
                     resolve()

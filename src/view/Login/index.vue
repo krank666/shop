@@ -2,7 +2,7 @@
 <div class="box">
   <el-form class="form" :model="form" ref="ruleFormRef" label-width="120px">
     <el-form-item>
-      <h3>{{ $t('msg.title')}}</h3>
+      <h3>{{ $t('login.title')}}</h3>
     </el-form-item>
     <el-form-item label="账号" prop="username">
       <el-input v-model="form.username" />
@@ -11,7 +11,7 @@
       <el-input type="password" v-model="form.password" />
     </el-form-item>
     <el-form-item>
-      <el-button size="large" type="primary" @click="submit">登录</el-button>
+      <el-button size="large" type="primary" @click="submit">{{ $t('login.btnTitle')}}</el-button>
       <el-button size="large"  @click="resetForm(ruleFormRef)">重置</el-button>
     </el-form-item>
   </el-form>

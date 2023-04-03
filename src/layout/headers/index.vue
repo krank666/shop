@@ -25,20 +25,20 @@ import Avatar from '@/layout/headers/component/avatar.vue'
   align-items: center;
   box-sizing: border-box;
   position: relative;
-  .navbar-right {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    :deep .navbar-item {
-      display: inline-block;
-      margin-left: 18px;
-      font-size: 22px;
-      color: #5a5e66;
-      box-sizing: border-box;
-      cursor: pointer;
-    }
-  }
+  //.navbar-right {
+  //  flex: 1;
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: flex-end;
+  //  :deep .navbar-item {
+  //    display: inline-block;
+  //    margin-left: 18px;
+  //    font-size: 22px;
+  //    color: #5a5e66;
+  //    box-sizing: border-box;
+  //    cursor: pointer;
+  //  }
+  //}
   .arrow {
     color: pink;
   }
